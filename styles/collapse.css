@@ -11,6 +11,19 @@
 	
 }
 
+.group:hover{
+	
+	background-Color: #DDD;
+	cursor: pointer;
+	
+}
+
+.group:hover div{
+	
+	
+	
+}
+
 .group_label{
 	
 	font-family: Segoe UI Light;
@@ -31,7 +44,6 @@
 		width: 25px;
 		border-radius: 100%;
 		border: 2px solid black;
-		background-color: grey;
 		
 		
 
@@ -41,11 +53,8 @@
 .dropdown_button:hover{
 	
 	
-		background-color: #DDD;
 		
 		
-
-
 }
 
 .dropdown_button i{
@@ -63,9 +72,17 @@
 
 .expand_container{
 	
-	width: 775px;
-	height: 200px;
-	background-color: black;
+	width: 780px;
+	background-color: #DDD;
 	position: relative;
-	left: 25px;
+	border-left: 10px solid white;
+	border-right: 10px solid white;
+	display:none;
+	
+}
+
+.menu_bar li{
+
+	list-style-type:none;
+	
 }

@@ -1,16 +1,46 @@
+<?php
+
+	include('./HelpfulFunctions.php');
+	$link = connectDB();
+	
+	$topic='';
+?>
+
 <script>
-	function Collapse_Required(){
+	/*
+	var xmlhttp;
 		
+	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 		
+		xmlhttp=new XMLHttpRequest();
 		
 	}
-	function Expand_Required(){
+	
+	else{// code for IE6, IE5
+
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		
-		var innercode="";
-		innercode+="<div class='expand_container'>";
-		innercode+="</div>";
+	}
+	
+	xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+           // document.getElementById("summary_container").innerHTML = xmlhttp.responseText;//How to get json object?
+        }
+    }
+	
+	//xmlhttp.open("GET","../contentchange.php?category=" + category,true);// Call HelpfulFunctions to get json?
+	xmlhttp.send();
+	*/
+	function Collapse(element){
 		
-		document.getElementById("Required_Expanded").innerHTML = innercode;
+		element.nextElementSibling.style.display = "none";
+		element.onclick = function(){ Expand(element); } ;
+		
+	}
+	function Expand(element){
+		
+		element.nextElementSibling.style.display = "block";
+		element.onclick = function(){ Collapse(element); } ;
 		
 	}
 
@@ -28,26 +58,57 @@
 	</head>
 	<body>
 	
-		<div id="Required">
-			<div class="group">
-				<span class="group_label">Required<span>
+		<!--Required CMSC-->
+		<?php $topic="Required CMSC"?>
 		
-					<div class="dropdown_button" onclick=Expand_Required()>
-						<i class="fa fa-caret-down"></i>
-					</div>
-					
-			</div>
-			<div id="Required_Expanded" class=""></div>
-		</div>
-		
-		<div class="group" id="Math">
-			<span class="group_label">Math<span>
-
+		<ul id="Required_CMSC" class="menu_bar">
+			<li class="group" onclick="Expand(this)">
+				<span class="group_label"><?php print($topic) ?></span>
 				<div class="dropdown_button">
 					<i class="fa fa-caret-down"></i>
 				</div>
-
-		</div>
+			</li>
+			<li id="Required_CMSC_Expanded" class="expand_container">
+			
+				<?php
+				
+					$arr=getAllClassesArray($link, $topic);
+					foreach($arr as $row){
+						foreach($row as $element){
+							print_r($element . "<br>\n");
+						}
+					}
+				?>
+			
+			</li>
+		</ul>
+		<!--Required CMSC-->
+		
+		<!--Required Math-->
+		<?php $topic="Required Math"?>
+		
+		<ul id="Required_CMSC" class="menu_bar">
+			<li class="group" onclick="Expand(this)">
+				<span class="group_label"><?php print($topic) ?></span>
+				<div class="dropdown_button">
+					<i class="fa fa-caret-down"></i>
+				</div>
+			</li>
+			<li id="Required_CMSC_Expanded" class="expand_container">
+			
+				<?php
+				
+					$arr=getAllClassesArray($link, $topic);
+					foreach($arr as $row){
+						foreach($row as $element){
+							print_r($element . "<br>\n");
+						}
+					}
+				?>
+			
+			</li>
+		</ul>
+		<!--Required Math-->
 	
 	</body>
 
