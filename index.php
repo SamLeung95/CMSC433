@@ -1,3 +1,17 @@
+<?php 
+	session_start(); 
+	#all things valid so pass the values into a session
+	if ($_SERVER["REQUEST_METHOD"] == "POST" && valid == TRUE)
+	{	
+		$_SESSION["fName"] = $_POST["fName"];
+		$_SESSION["lName"] = $_POST["lName"];
+		$_SESSION["phone"] = $_POST["phone"];
+		$_SESSION["email"] = $_POST["email"];
+		header("Location:class_select.php");
+		exit;
+	}
+?>
+
 <html>
 
 	<head>
@@ -8,50 +22,111 @@
 
 	</head>
 	<body>
+
+			<!--validation of the input-->
+			<?php
+
+			$fName = $lName = $phone = $email = "";
+			$fNameErr = $lNameErr = $phoneErr = $emailErr = "";
+
+			if ($_SERVER["REQUEST_METHOD"] == "POST")
+			{
+				if (empty($_POST["fName"]))
+				{
+					$fNameErr = "Firstname is required";
+					$valid = FALSE;
+				} else {
+					$fName = testInput($_POST["fName"]);
+
+					if (!preg_match("/^[a-zA-Z ]*$/", $fName)) {
+						$fNameErr = "Only letters and white space allowed";
+						$valid = FALSE;
+					}
+				}
+
+				if (empty($_POST["lName"]))
+				{
+					$lNameErr = "Lastname is required";
+					$valid = FALSE;
+				} else {
+					$lName = testInput($_POST["lName"]);
+
+					if (!preg_match("/^[a-zA-Z ]*$/", $lName)) {
+						$lNameErr = "Only letters and white space allowed";
+						$valid = FALSE;
+					}
+				}
+
+				if (empty($_POST["phone"]))
+				{
+					$phoneErr = "Phone is required";
+					$valid = FALSE;
+				} else {
+					$phone = testInput($_POST["phone"]);
+
+					if(!preg_match("/^[\d]{3}-?[\d]{3}-?[\d]{4}$/", $phone)){
+					
+						$phoneErr = "Invalid phone number";
+						$valid = FALSE;
+					}
+				}
+
+				if (empty($_POST["email"]))
+				{
+					$emailErr = "Email is required";
+					$valid = FALSE;
+				} else {
+					$email = testInput($_POST["email"]);
+
+					if (!preg_match("/^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/", $email))
+					{
+     					$emailErr = "Invalid email format"; 
+     					$valid = FALSE;
+    				}
+				}
+
+			}
+
+			function testInput($data)
+			{
+				$data = trim($data);
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				return $data;
+			}
+
+
+
+
+			?>
+
+			<!--Updates database if input are valid-->
+
+
 		<div id="blocker"><a href="./class_select.php">Temp link to class select</a></div>
-		
+
 		<div id="login">
-			<form method="post" id="form">
+			<form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="form">
 			
 			<!--Takes first name input-->
-			
-			<?php 
-				
-				if(isset($_POST['submit']) && !preg_match("[^\s\.@!#$%^&*():;\\/|<>]{3,}", $firstname)){
-						
-					echo '<error>First name is not valid</error>';
-					$valid = FALSE;
-						
-				}
-				
-			?>
 				
 			<div>
 				
 				<label>First Name:&nbsp;</label >
-				<input type="text" name="firstname" value= "<?php echo $firstname?>" placeholder="e.g. First Name"> 
+				<input type="text" name="fName" value= "<?php echo $fName?>" placeholder="e.g. First Name"> 
+				<span class="error">* <?php echo $fNameErr; ?></span>
 			
 			</div>
 			
 			<br>
-			
+
 			<!--Takes last name input-->
 			
-			<?php 
-				
-				if(isset($_POST['submit']) && !preg_match("[^\s\.@!#$%^&*():;\\/|<>]{3,}", $lastname)){
-						
-					echo '<error>Last name is not valid</error>';
-					$valid = FALSE;
-						
-				}
-				
-			?>
-				
 			<div>
 				
 				<label>Last Name:&nbsp;</label >
-				<input type="text" name="lastname" value= "<?php echo $lastname?>" placeholder="e.g. Last Name"> 
+				<input type="text" name="lName" value= "<?php echo $lName?>" placeholder="e.g. Last Name"> 
+				<span class="error">* <?php echo $lNameErr; ?></span>
 			
 			</div>
 			
@@ -59,20 +134,11 @@
 
 			<!--Takes phone number input-->
 
-			<?php 
-			
-				if(isset($_POST['submit']) && !preg_match("/^[\d]{3}-[\d]{3}-[\d]{4}$/", $phone)){
-					
-					echo '<error>Phone number is not valid</error>';
-					$valid = FALSE;
-				}
-			
-			?>
-
 			<div>
 			
 			<label>Phone:&nbsp;</label>
 			<input type="text" name="phone" value= "<?php echo $phone?>" placeholder="e.g. xxx-xxx-xxxx">
+			<span class="error">* <?php echo $phoneErr; ?></span>
 			
 			</div>
 			
@@ -80,50 +146,19 @@
 			
 			<!--Takes email input-->
 			
-				<?php 
-				
-					if(isset($_POST['submit']) && !preg_match("/^(?=^.{3,30}$)([\da-zA-z.]+@[\da-zA-z.]*[\da-zA-z]+\.[a-zA-z]+)$/", $email)){
-						
-						echo '<error>Email is not valid</error>';
-						$valid = FALSE;
-					}
-				
-				?>
-			
 			<div>
 			
 				<label>Email:&nbsp;</label>
 				<input type="text" name="email" value= "<?php echo $email?>" placeholder="e.g. advisor@umbc.edu">
+				<span class="error">* <?php echo $emailErr; ?></span>
 				
 			</div>
 			
 			<br>
+			<input type="submit" value="Submit" id="submit"/>
 			
-			<!--Updates database if input are valid-->
-			<?php
-			
-				if(isset($_POST['submit']) && $valid == TRUE){
-					
-					//$sql = 'INSERT INTO `Advisors`(`Name`, `Occupation`, `Room`, `Phone`, `Email`) VALUES ("'.$name. '", "'.$occupation. '", "'.$room. '", "'.$phone. '", "'.$email. '")';
-					$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-					
-					echo '<div id="confirm">',
-						$name , ' has been added.
-					</div>';
-					
-				}
-			
-			?>
-			
-			<input type="submit" name="submit" value="Submit" id="submit"/>
-			
-		</form>
-		
-				
-		</div>
-		
-		
-	
+		</form>			
+		</div>	
 	</body>
 
 </html>
