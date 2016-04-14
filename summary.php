@@ -448,7 +448,10 @@
 		}
 
 		//shove stuff into db
+		
 		insertVars($link);
+		
+		$_SESSION['lastPage'] = 'summary.php';
 		?>		
 		
 	</body>

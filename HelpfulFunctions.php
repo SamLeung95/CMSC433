@@ -130,19 +130,16 @@ function testFunctions(){
 function insertVars($conn)
 {
 	//insert student's info
-	$query = "INSERT INTO StudentInfo (fName, lName, email, phone)
-	VALUES ('".$_SESSION['fName']."','". $_SESSION['lName']."','". $_SESSION['email']."','". $_SESSION['phone']."');";
-	$result = mysql_query($query, $conn);
-	if(!$result){
-		die('Insert failed '.mysql_error());
+	if($_SESSION['lastPage'] == 'class_select.php'){
+		$query = "INSERT INTO StudentInfo (fName, lName, email, phone)
+		VALUES ('".$_SESSION['fName']."','". $_SESSION['lName']."','". $_SESSION['email']."','". $_SESSION['phone']."');";
+		$result = mysql_query($query, $conn);
 	}
 	//insert classes the student took
 	foreach ($_POST as $classId => $hasTaken){
 		$query = "INSERT INTO HasTaken (studentEmail, classId) VALUES ('".$_SESSION['email']."','". $classId ."');";
 		$result = mysql_query($query, $conn);
-		if(!$result){
-			die('Insert failed '.mysql_error());
-		}
+		
 	}
 }
 ?>
