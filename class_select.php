@@ -7,30 +7,7 @@
 ?>
 
 <script>
-	/*
-	var xmlhttp;
-		
-	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-		
-		xmlhttp=new XMLHttpRequest();
-		
-	}
 	
-	else{// code for IE6, IE5
-
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-		
-	}
-	
-	xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-           // document.getElementById("summary_container").innerHTML = xmlhttp.responseText;//How to get json object?
-        }
-    }
-	
-	//xmlhttp.open("GET","../contentchange.php?category=" + category,true);// Call HelpfulFunctions to get json?
-	xmlhttp.send();
-	*/
 	function Collapse(element){
 		
 		element.nextElementSibling.style.display = "none";
@@ -58,58 +35,64 @@
 	</head>
 	<body>
 	
-		<!--Required CMSC-->
-		<?php $topic="Required CMSC"?>
-		
-		<ul id="Required_CMSC" class="menu_bar">
-			<li class="group" onclick="Expand(this)">
-				<span class="group_label"><?php print($topic) ?></span>
-				<div class="dropdown_button">
-					<i class="fa fa-caret-down"></i>
-				</div>
-			</li>
-			<li id="Required_CMSC_Expanded" class="expand_container">
+		<form action="">
+			<!--Required CMSC-->
+			<?php $topic="Required CMSC"?>
 			
-				<?php
+			<ul id="Required_CMSC" class="menu_bar">
+				<li class="group" onclick="Expand(this)">
+					<label for="group" class="group_label"><?php print($topic) ?><span class="mask"></span></label>
+					<div class="dropdown_button">
+						<i class="fa fa-caret-down"></i>
+					</div>
+				</li>
+				<li class="expand_container">
 				
-					$arr=getAllClassesArray($link, $topic);
-					foreach($arr as $row){
-						foreach($row as $element){
-							print_r($element . "<br>\n");
+					<!--Gets content of field from DB and turns into checkboxes-->
+					
+					<?php
+					
+						$arr=getAllClassesArray($link, $topic);
+						foreach($arr as $row){
+							echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
+								<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+							<br>';
 						}
-					}
-				?>
+					?>
+					
+				</li>
+			</ul>
+			<!--Required CMSC-->
 			
-			</li>
-		</ul>
-		<!--Required CMSC-->
-		
-		<!--Required Math-->
-		<?php $topic="Required Math"?>
-		
-		<ul id="Required_CMSC" class="menu_bar">
-			<li class="group" onclick="Expand(this)">
-				<span class="group_label"><?php print($topic) ?></span>
-				<div class="dropdown_button">
-					<i class="fa fa-caret-down"></i>
-				</div>
-			</li>
-			<li id="Required_CMSC_Expanded" class="expand_container">
+			<!--Required Math-->
+			<?php $topic="Required Math"?>
 			
-				<?php
+			<ul id="Required_CMSC" class="menu_bar">
+				<li class="group" onclick="Expand(this)">
+					<span class="group_label"><?php print($topic) ?></span>
+					<div class="dropdown_button">
+						<i class="fa fa-caret-down"></i>
+					</div>
+				</li>
+				<li id="Required_CMSC_Expanded" class="expand_container">
 				
-					$arr=getAllClassesArray($link, $topic);
-					foreach($arr as $row){
-						foreach($row as $element){
-							print_r($element . "<br>\n");
+					<?php
+					
+						$arr=getAllClassesArray($link, $topic);
+						foreach($arr as $row){
+							foreach($row as $element){
+								print_r($element);
+							}
 						}
-					}
-				?>
+					?>
+				
+				</li>
+			</ul>
+			<!--Required Math-->
 			
-			</li>
-		</ul>
-		<!--Required Math-->
-	
+			 <input type="submit" value="Submit">
+			
+		</form>
 	</body>
 
 </html>

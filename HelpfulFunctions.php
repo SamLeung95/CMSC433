@@ -17,16 +17,19 @@ function connectDB(){
 	Note: may need to call this function a few times within a single dropdown. Ex: different types of science my be better in a single dropdown, idk
 
 	all categories:
-	Additional Science
-	Required Science
-	Science With Lab
 	Required CMSC
+	Required Math
+	Required Stat
+	Required Science
+	Additional Science
+	Science With Lab
+	
 	CMSC Elective
 	CMSC Tech Elec
-	Required Math
+	
 	Additional Math
 	Tech Math Elective
-	Required Stat
+	
 	*/
 function getAllClassesArray($conn, $category){
 	$query = "select id, name, credits from Classes where category = '" . $category . "';";
