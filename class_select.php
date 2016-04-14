@@ -16,7 +16,7 @@
 	}
 	function Expand(element){
 		
-		element.nextElementSibling.style.display = "block";
+		element.nextElementSibling.style.display = "inline-block";
 		element.onclick = function(){ Collapse(element); } ;
 		
 	}

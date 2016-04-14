@@ -2,7 +2,7 @@ form{
 	
 	width: 620px;
 	margin: auto;
-	display: block;
+	display: center;
 	position: relative;
 	
 }
@@ -14,6 +14,7 @@ Total width is actually 620px due to padding
 	
 	width: 600px;
 	padding: 10px;
+	margin: auto;
 	background-color: #a6a6a6;
 	border-radius: 5px;
 	text-align: center;
@@ -61,26 +62,25 @@ Total width is actually 620px due to padding
 
 }
 
-.expand_container{
-	
-	width: 616px;
-	background-color: #DDD;
-	position: relative;
-	display:none;
-	margin: 0 2px 0 2px;
-	
-}
-
 .menu_bar{
 	
 	padding: 0;
 	list-style-type: none;
+	text-align:center;
 	
 }
 
 .menu_bar li{
 
 	list-style-type:none;
+	
+}
+
+.expand_container{
+	
+	width: 620px;
+	position: relative;
+	display: none;
 	
 }
 
@@ -94,9 +94,9 @@ Total width is actually 620px due to padding
 
 	display: inline-block;
 	text-align: center;
-	width: 100%;
+	width:620px;
+	padding: 10px 0 10px 0;
 	font-size: 14px;
-	padding: 15px 0 15px 0;
 	background-color: #bfbfbf;
 	
 }
