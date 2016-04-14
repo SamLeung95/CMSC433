@@ -3,6 +3,7 @@
 	session_start();
 	include('./HelpfulFunctions.php');
 	$link = connectDB();
+
 	
 	$valid;
 	
@@ -18,6 +19,7 @@
 	else{	
 		$valid=true;
 	}	
+
 	
 ?>
 
@@ -55,7 +57,16 @@
 		if($valid==true){
 		?>
 				<!--Required CMSC-->
-				<?php $topic="Required CMSC"; ?>
+				<?php 
+				$topic="Required CMSC";
+
+				$arr=getPossibleClassesArray($link, $topic);
+
+				if(!empty($arr)){
+					
+				
+				
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -70,7 +81,8 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -80,10 +92,20 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--Required CMSC-->
 				
 				<!--Required Math-->
-				<?php $topic="Required Math"; ?>
+				<?php $topic="Required Math";
+
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -98,7 +120,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -108,10 +130,21 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--Required Math-->
 				
 				<!--Required Stat-->
-				<?php $topic="Required Stat"; ?>
+				<?php $topic="Required Stat"; 
+				
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -126,7 +159,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -136,10 +169,21 @@
 						
 					</li>
 				</ul>
+				
+				<?php
+				
+				}
+				
+				?>
 				<!--Required Stat-->
 				
 				<!--Required Science-->
-				<?php $topic="Required Science"; ?>
+				<?php $topic="Required Science"; 
+				
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -154,7 +198,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -164,10 +208,20 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--Required Science-->
 				
 				<!--Additional Science-->
-				<?php $topic="Additional Science"; ?>
+				<?php $topic="Additional Science"; 
+				
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -182,7 +236,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -192,10 +246,20 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--Additional Science-->
 				
 				<!--Science With Lab-->
-				<?php $topic="Science With Lab"; ?>
+				<?php $topic="Science With Lab"; 
+				
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -210,7 +274,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -220,10 +284,20 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--Science With Lab-->
 				
 				<!--CMSC Elective-->
-				<?php $topic="CMSC Elective"; ?>
+				<?php $topic="CMSC Elective"; 
+				
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -238,7 +312,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -248,10 +322,20 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--CMSC Elective-->
 				
 				<!--CMSC Tech Elec-->
-				<?php $topic="CMSC Tech Elec"; ?>
+				<?php $topic="CMSC Tech Elec"; 
+				
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -266,7 +350,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -276,10 +360,20 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--CMSC Tech Elec-->
 				
 				<!--Additional Math-->
-				<?php $topic="Additional Math"; ?>
+				<?php $topic="Additional Math"; 
+				
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -294,7 +388,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -304,10 +398,20 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--Additional Math-->
 				
 				<!--Tech Math Elective-->
-				<?php $topic="Tech Math Elective"; ?>
+				<?php $topic="Tech Math Elective"; 
+				
+				$arr=getPossibleClassesArray($link, $topic);
+				
+				if(!empty($arr)){
+				?>
 				
 				<ul id="<?php $topic; ?>" class="menu_bar">
 					<li class="group" onclick="Expand(this)">
@@ -322,7 +426,7 @@
 						
 						<?php
 						
-							$arr=getPossibleClassesArray($link, $topic);
+							
 							foreach($arr as $row){
 								echo '<span id="' . $row['name'] . '_span" >
 									<label for="' . $row['name'] . '_span" class="collapse_label">' . $row['name'] . '</label>
@@ -332,6 +436,11 @@
 						
 					</li>
 				</ul>
+				<?php
+				
+				}
+				
+				?>
 				<!--Tech Math Elective-->
 				
 			
