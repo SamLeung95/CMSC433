@@ -91,7 +91,7 @@
 
 
 
-
+			$_SESSION['lastPage'] = 'index.php';
 			?>
 
 			<!--Updates database if input are valid-->

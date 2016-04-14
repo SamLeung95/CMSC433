@@ -343,6 +343,7 @@
 			
 		<?php 
 		}
+		$_SESSION['lastPage'] = 'class_select.php';
 		?>		
 		
 	</body>
