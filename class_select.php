@@ -7,7 +7,7 @@
 	$valid;
 	
 	
-	if(!isset($_SESSION['fName'],$_SESSION['lName'],$_SESSION['phone'],$_SESSION['email'])){
+	if(!isset($_SESSION['fName']) && !isset($_SESSION['lName']) && !isset($_SESSION['phone']) && !isset($_SESSION['email']) && !isset($_SESSION['valid'])){
 			
 			header('Location:./index.php');
 			exit;

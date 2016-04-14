@@ -1,15 +1,9 @@
 <?php 
 	session_start(); 
-	#all things valid so pass the values into a session
-	if ($_SERVER["REQUEST_METHOD"] == "POST" && valid == TRUE)
-	{	
-		$_SESSION["fName"] = $_POST["fName"];
-		$_SESSION["lName"] = $_POST["lName"];
-		$_SESSION["phone"] = $_POST["phone"];
-		$_SESSION["email"] = $_POST["email"];
-		header("Location:class_select.php");
-		exit;
-	}
+	
+
+	$valid=TRUE;
+	
 ?>
 
 <html>
@@ -103,7 +97,7 @@
 			<!--Updates database if input are valid-->
 
 
-		<div id="blocker"><a href="./class_select.php">Temp link to class select</a></div>
+		<div id="blocker"></div>
 
 		<div id="login">
 			<form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="form">
@@ -149,10 +143,32 @@
 			<div>
 			
 				<label>Email:&nbsp;</label>
-				<input type="text" name="email" value= "<?php echo $email?>" placeholder="e.g. advisor@umbc.edu">
+				<input type="text" name="email" value= "<?php echo $email?>" placeholder="e.g. email@provider.com">
 				<span class="error">* <?php echo $emailErr; ?></span>
 				
 			</div>
+			
+			<?php
+				
+				#all things valid so pass the values into a session			
+				if ($_SERVER["REQUEST_METHOD"] == "POST" && $valid == TRUE)
+				{	
+					$_SESSION["fName"] = $_POST["fName"];
+					$_SESSION["lName"] = $_POST["lName"];
+					$_SESSION["phone"] = $_POST["phone"];
+					$_SESSION["email"] = $_POST["email"];
+					$_SESSION["valid"] = $valid;
+					echo"
+						<script>
+							window.location = './class_select.php';
+						</script>
+					";
+					exit;
+				}
+				
+			
+			
+			?>
 			
 			<br>
 			<input type="submit" value="Submit" id="submit"/>
