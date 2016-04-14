@@ -54,7 +54,6 @@
 		
 		if($valid==true){
 		?>
-			<form action="./summary.php">
 				<!--Required CMSC-->
 				<?php $topic="Required CMSC"; ?>
 				
@@ -335,17 +334,12 @@
 				</ul>
 				<!--Tech Math Elective-->
 				
-				
-				<input type="submit" value="Submit" class="submit_button">  
-				
-			</form>
 			
 		<?php 
 		}
 
 		//shove stuff into db
-		$conn = connectDB();
-		$insertVars();
+		insertVars($link);
 		?>		
 		
 	</body>

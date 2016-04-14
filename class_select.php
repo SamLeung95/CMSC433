@@ -54,7 +54,7 @@
 		
 		if($valid==true){
 		?>
-			<form action="./summary.php">
+			<form action="./summary.php" method='post'>
 				<!--Required CMSC-->
 				<?php $topic="Required CMSC"; ?>
 				
@@ -341,7 +341,7 @@
 				
 			</form>
 			
-<		<?php 
+		<?php 
 		}
 		?>		
 		

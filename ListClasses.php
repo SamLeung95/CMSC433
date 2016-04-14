@@ -1,18 +1,5 @@
 <?php
-/*
-function: connectDB
-usage: call this function to return a connection to Nat's db with all the classes in it.
-*/
-function connectDB(){
-	$link = mysql_connect("studentdb-maria.gl.umbc.edu", "bnat1", "bnat1") or die("could not connect");
-	mysql_select_db("bnat1", $link) or die("could not connect to db");
-	return $link;
-}
-
 	/*
-	function: getAllClassesArray
-	usage: pass in a connection and a category, and get returned an array with all classes within that category
-
 	Note: Use id as name for input
 	Note: may need to call this function a few times within a single dropdown. Ex: different types of science my be better in a single dropdown, idk
 
@@ -28,6 +15,13 @@ function connectDB(){
 	Tech Math Elective
 	Required Stat
 	*/
+
+function connectDB(){
+	$link = mysql_connect("studentdb-maria.gl.umbc.edu", "bnat1", "bnat1") or die("could not connect");
+	mysql_select_db("bnat1", $link) or die("could not connect to db");
+	return $link;
+}
+
 function getAllClassesArray($conn, $category){
 	$query = "select id, name, credits from Classes where category = '" . $category . "';";
 	$result = mysql_query($query, $conn);
@@ -38,11 +32,6 @@ function getAllClassesArray($conn, $category){
 	return $classArray;
 }
 
-
-/*
-function: getPossibleClassesArray
-usage: after the form is submitted, pass in connection and category, and this gives an array with all classes within the category the user can take. 
-*/
 function getPossibleClassesArray($conn, $category){
 	/*
 		$_POST['classId'] == 'Yes';
@@ -93,9 +82,6 @@ function getPossibleClassesArray($conn, $category){
 	return $classArray;
 }
 
-/*
-testing the previous functions
-*/
 function testFunctions(){
 	$conn = connectDB();
 	echo "<br>";
@@ -123,26 +109,5 @@ function testFunctions(){
 		}
 	
 }
-
-//function: insertVars
-//usage: will insert the values found in the associative array, $_SESSION, and the values passed into $_POST 
-//		 and insert them into their respective tables 
-function insertVars($conn)
-{
-	//insert student's info
-	$query = "INSERT INTO StudentInfo (fName, lName, email, phone)
-	VALUES ('".$_SESSION['fName']."','". $_SESSION['lName']."','". $_SESSION['email']."','". $_SESSION['phone']."');";
-	$result = mysql_query($query, $conn);
-	if(!$result){
-		die('Insert failed '.mysql_error());
-	}
-	//insert classes the student took
-	foreach ($_POST as $classId => $hasTaken){
-		$query = "INSERT INTO HasTaken (studentEmail, classId) VALUES ('".$_SESSION['email']."','". $classId ."');";
-		$result = mysql_query($query, $conn);
-		if(!$result){
-			die('Insert failed '.mysql_error());
-		}
-	}
-}
+// testFunctions();
 ?>
