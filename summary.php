@@ -340,8 +340,12 @@
 				
 			</form>
 			
-<		<?php 
+		<?php 
 		}
+
+		//shove stuff into db
+		$conn = connectDB();
+		$insertVars();
 		?>		
 		
 	</body>

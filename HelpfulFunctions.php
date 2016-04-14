@@ -129,15 +129,20 @@ function testFunctions(){
 //		 and insert them into their respective tables 
 function insertVars()
 {
-	$conn = connectDB();
-	$ins = "INSERT INTO StudentInfo (fName, lName, email, phone)
-	VALUES (".$_SESSION['fName'].",". $_SESSION['lName'].",". $_SESSION['email'].",". $_SESSION['phone'].");";
-
-	if (mysqli_query($conn, $ins)) {
-    	echo "New record created successfully";
-	} else {
-    	echo "Error: " . $ins . "<br>" . mysqli_error($conn);
+	//insert student's info
+	$query = "INSERT INTO StudentInfo (fName, lName, email, phone)
+	VALUES ('".$_SESSION['fName']."','". $_SESSION['lName']."','". $_SESSION['email']."','". $_SESSION['phone']."'');";
+	$result = mysql_query($conn, $query);
+	if(!$result){
+		die('Insert failed'.mysql_error());
+	}
+	//insert classes the student took
+	foreach ($_POST as $classId => $hasTaken){
+		$query = "INSERT INTO HasTaken (studentEmail, classId) VALUES ('".$_SESSION['studentEmail']."','". $classId ."');";
+		$result = mysql_query($conn, $query);
+		if(!$result){
+			die('Insert failed'.mysql_error());
+		}
 	}
 }
-// testFunctions();
 ?>
