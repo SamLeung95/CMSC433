@@ -17,19 +17,16 @@ function connectDB(){
 	Note: may need to call this function a few times within a single dropdown. Ex: different types of science my be better in a single dropdown, idk
 
 	all categories:
-	Required CMSC
-	Required Math
-	Required Stat
-	Required Science
 	Additional Science
+	Required Science
 	Science With Lab
-	
+	Required CMSC
 	CMSC Elective
 	CMSC Tech Elec
-	
+	Required Math
 	Additional Math
 	Tech Math Elective
-	
+	Required Stat
 	*/
 function getAllClassesArray($conn, $category){
 	$query = "select id, name, credits from Classes where category = '" . $category . "';";
@@ -125,6 +122,22 @@ function testFunctions(){
 			}
 		}
 	
+}
+
+//function: insertVars
+//usage: will insert the values found in the associative array, $_SESSION, and the values passed into $_POST 
+//		 and insert them into their respective tables 
+function insertVars()
+{
+	$conn = connectDB();
+	$ins = "INSERT INTO StudentInfo (fName, lName, email, phone)
+	VALUES (".$_SESSION['fName'].",". $_SESSION['lName'].",". $_SESSION['email'].",". $_SESSION['phone'].");";
+
+	if (mysqli_query($conn, $ins)) {
+    	echo "New record created successfully";
+	} else {
+    	echo "Error: " . $ins . "<br>" . mysqli_error($conn);
+	}
 }
 // testFunctions();
 ?>
