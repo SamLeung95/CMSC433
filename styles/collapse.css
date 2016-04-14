@@ -104,6 +104,7 @@ Total width is actually 620px due to padding
 .collapse_label:hover{
 	
 	background-color: #cccccc;
+	cursor: pointer;
 	
 }
 
