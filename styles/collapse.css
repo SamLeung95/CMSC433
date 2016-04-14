@@ -108,7 +108,7 @@ Total width is actually 620px due to padding
 	
 }
 
-.class_checkbox:checked + .checkbox_label{
+.class_checkbox:checked + .collapse_label{
 	
 	background-color: grey; 
 	color: white;

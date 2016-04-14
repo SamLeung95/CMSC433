@@ -17,7 +17,7 @@
 	
 	else{	
 		$valid=true;
-	}	
+	}
 	
 ?>
 
@@ -328,6 +328,7 @@
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
 									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
+								
 							}
 						?>
 						
