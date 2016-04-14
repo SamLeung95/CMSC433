@@ -58,7 +58,7 @@
 				} else {
 					$phone = testInput($_POST["phone"]);
 
-					if(!preg_match("/^[\d]{3}-?[\d]{3}-?[\d]{4}$/", $phone)){
+					if(!preg_match("/^[\d]{3}-[\d]{3}-[\d]{4}$/", $phone)){
 					
 						$phoneErr = "Invalid phone number";
 						$valid = FALSE;
