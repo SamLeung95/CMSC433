@@ -6,17 +6,19 @@
 	
 	$valid;
 	
+	/*
 	if(!isset($_SESSION['firstname'],$_SESSION['lastname'],$_SESSION['phone'],$_SESSION['email'])){
 			
 			header('Location:./index.php');
 			exit;
 			
 	}
-	else{
+	*/
+	
 		
 		$valid=true;
 		
-	}
+	
 ?>
 
 <script>
@@ -72,7 +74,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -100,7 +102,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -128,7 +130,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -156,7 +158,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -184,7 +186,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -212,7 +214,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -240,7 +242,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -268,7 +270,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -296,7 +298,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>
@@ -324,7 +326,7 @@
 							$arr=getAllClassesArray($link, $topic);
 							foreach($arr as $row){
 								echo '<input type="checkbox" name="' . $row['id'] . '" value="' . $row['id'] . '" id="' . $row['name'] . '_checkbox" class="class_checkbox">
-									<label for="' . $row['name'] . '_checkbox" class="checkbox_label">' . $row['name'] . '</label>
+									<label for="' . $row['name'] . '_checkbox" class="collapse_label">' . $row['name'] . '</label>
 								<br>';
 							}
 						?>

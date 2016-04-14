@@ -90,7 +90,7 @@ Total width is actually 620px due to padding
 	
 }
 
-.checkbox_label{
+.collapse_label{
 
 	display: inline-block;
 	text-align: center;
@@ -101,7 +101,7 @@ Total width is actually 620px due to padding
 	
 }
 
-.checkbox_label:hover{
+.collapse_label:hover{
 	
 	background-color: #cccccc;
 	
