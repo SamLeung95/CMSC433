@@ -16,9 +16,77 @@
   right: 0;
   bottom: 0;
 }
+.mask:hover{
+	
+	cursor: pointer;
+	
+}
+
+.instructions{
+	
+	display: inline-block;
+	top: 30px;
+	left: 50px;
+	width: 400px;
+	height: 300px;
+	position: fixed;
+	overflow-x:hidden;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 15px;
+	font-size: 24px;
+	
+}
+
+.Header{
+	
+	display: block;
+	width: 700px;
+	padding: 50px;
+	background-color: #404040;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+	margin: 30px auto 50px auto;
+	
+	
+}
+
+.Header span{
+	
+	
+	font-size: 46px;
+	
+}
+
+.StudentInfo{
+	
+	display: inline-block;
+	left: 1450px;
+	top: 30px;
+	width: 350px;
+	height: 200px;
+	position: fixed;
+	overflow-x:hidden;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 15px;
+	font-size: 24px;
+	
+}
 
 body{
 	
 	background-color:#d9d9d9;
+	overflow-y: scroll;
+	
+}
+
+.submit_button{
+	
+	margin: 10px auto;
+	display: block;
 	
 }

@@ -103,51 +103,62 @@
 			<form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="form">
 			
 			<!--Takes first name input-->
+			<table>	
+				<tr>
+					
+					<td>
+					<label>First Name:&nbsp;</label>
+					</td>
+					
+					<td>
+					<input type="text" name="fName" value= "<?php echo $fName?>" placeholder="e.g. First Name"> 
+					<span class="error">* <?php echo $fNameErr; ?></span>
 				
-			<div>
-				
-				<label>First Name:&nbsp;</label >
-				<input type="text" name="fName" value= "<?php echo $fName?>" placeholder="e.g. First Name"> 
-				<span class="error">* <?php echo $fNameErr; ?></span>
-			
-			</div>
-			
-			<br>
+				</tr>
 
-			<!--Takes last name input-->
-			
-			<div>
+				<!--Takes last name input-->
 				
-				<label>Last Name:&nbsp;</label >
-				<input type="text" name="lName" value= "<?php echo $lName?>" placeholder="e.g. Last Name"> 
-				<span class="error">* <?php echo $lNameErr; ?></span>
-			
-			</div>
-			
-			<br>
-
-			<!--Takes phone number input-->
-
-			<div>
-			
-			<label>Phone:&nbsp;</label>
-			<input type="text" name="phone" value= "<?php echo $phone?>" placeholder="e.g. xxx-xxx-xxxx">
-			<span class="error">* <?php echo $phoneErr; ?></span>
-			
-			</div>
-			
-			<br>
-			
-			<!--Takes email input-->
-			
-			<div>
-			
-				<label>Email:&nbsp;</label>
-				<input type="text" name="email" value= "<?php echo $email?>" placeholder="e.g. email@provider.com">
-				<span class="error">* <?php echo $emailErr; ?></span>
+				<tr>
+					
+					<td>
+					<label>Last Name:&nbsp;</label >
+					</td>
+					
+					<td>
+					<input type="text" name="lName" value= "<?php echo $lName?>" placeholder="e.g. Last Name"> 
+					<span class="error">* <?php echo $lNameErr; ?></span>
 				
-			</div>
-			
+				</tr>
+
+				<!--Takes phone number input-->
+
+				<tr>
+					
+					<td>
+					<label>Phone:&nbsp;</label>
+					</td>
+					
+					<td>
+					<input type="text" name="phone" value= "<?php echo $phone?>" placeholder="e.g. xxx-xxx-xxxx">
+					<span class="error">* <?php echo $phoneErr; ?></span>
+				
+				</tr>
+				
+				<!--Takes email input-->
+				
+				<tr>
+					
+					<td>
+					<label>Email:&nbsp;</label>
+					</td>
+					
+					<td>
+					<input type="text" name="email" value= "<?php echo $email?>" placeholder="e.g. email@provider.com">
+					<span class="error">* <?php echo $emailErr; ?></span>
+					</td>
+					
+				</tr>
+			</table>
 			<?php
 				
 				#all things valid so pass the values into a session			
@@ -171,7 +182,7 @@
 			?>
 			
 			<br>
-			<input type="submit" value="Submit" id="submit"/>
+			<input type="submit" value="Submit" class="submit_button"/>
 			
 		</form>			
 		</div>	

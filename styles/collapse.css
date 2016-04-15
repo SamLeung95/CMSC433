@@ -70,6 +70,7 @@ Total width is actually 620px due to padding
 	
 }
 
+
 .menu_bar li{
 
 	list-style-type:none;
@@ -117,7 +118,7 @@ Total width is actually 620px due to padding
 
 .submit_button{
 	
-	margin: auto;
+	margin: 10px auto;
 	display: block;
 	
 }

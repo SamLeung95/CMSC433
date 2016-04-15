@@ -1,7 +1,0 @@
-﻿select_classes instructions: 
-
-Please select which classes you have already taken from the various categories. Upon hitting 'submit', you will be able to see which classes you are have the prerequisites to take next semester. 
-
-Summary instructions:
-
-Given the classes you entered in the previous page, you should be able to sign up for the following classes from the various categories.

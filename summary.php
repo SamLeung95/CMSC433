@@ -52,6 +52,44 @@
 	</head>
 	<body>
 	
+		<!--PERSISTENT-->
+	
+		<!--Instructions-->
+		<div class="instructions">
+		
+		Instructions: 
+		<br><br>
+		Given the classes you entered in the
+		previous page, you should be able to
+		sign up for the following classes from 
+		the various categories.
+		
+		</div>
+		
+		<!--Header-->
+		
+		<div class="Header">
+		
+			<span>SUMMARY</SPAN>
+		
+		</div>
+		
+		<!--Student Info-->
+		
+		<div class="StudentInfo">
+			
+			First Name: <?php echo $_SESSION['fName']; ?>
+			<br>
+			Last Name: <?php echo $_SESSION['lName']; ?>
+			<br>
+			E-mail: <?php echo $_SESSION['email']; ?>
+			<br>
+			Phone #: <?php echo $_SESSION['phone']; ?>
+			
+		</div>
+	
+		<!--PERSISTENT-->
+	
 		<?php
 		
 		if($valid==true){

@@ -42,14 +42,54 @@
 <html>
 
 	<head>
-		<title></title>
+		<title>UMBC COURSE SELECTION TOOL</title>
 		<link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="./styles/main.css">
 		<link rel="stylesheet" type="text/css" href="./styles/collapse.css">
 
 	</head>
 	<body>
+		
+	<!--PERSISTENT-->
 	
+		<!--Instructions-->
+		<div class="instructions">
+		
+		Instructions: 
+		<br><br>
+		Please select which classes you have 
+		already taken from the various categories. 
+		Upon hitting 'submit', you will be able 
+		to see which classes you are have the 
+		prerequisites to take next semester. 
+		
+		</div>
+		
+		<!--Header-->
+		
+		<div class="Header">
+		
+			<span>CLASS SELECTION</SPAN>
+		
+		</div>
+		
+		<!--Student Info-->
+		
+		<div class="StudentInfo">
+		
+			First Name: <?php echo $_SESSION['fName']; ?>
+			<br>
+			Last Name: <?php echo $_SESSION['lName']; ?>
+			<br>
+			E-mail: <?php echo $_SESSION['email']; ?>
+			<br>
+			Phone #: <?php echo $_SESSION['phone']; ?>
+			<br><br>
+			<span style="color: green; font-size: 20px;">Your information has been submitted</span>
+			
+		</div>
+	
+	<!--PERSISTENT-->
 		<?php
 		
 		if($valid==true){
